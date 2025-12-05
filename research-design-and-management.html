@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Design & Management - African Development Models Initiative</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img id="app-logo" src="https://raw.githubusercontent.com/DomSimone/ADMI232/refs/heads/main/static/logo.png" alt="African Development Models Initiative Logo">
+        <h1>African Development Models Initiative</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="research-design-and-management.html" class="active">Research Design & Management</a></li>
+            <li><a href="data-ingestion.html">Data Ingestion & Analysis</a></li>
+            <li><a href="ai-agent.html">AI Agent</a></li>
+            <li><a href="research-repository.html">Research Repository</a></li>
+            <li><a href="terms-of-use.html">Terms of Use</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Survey Creation Section -->
+        <section id="create-survey">
+            <h2>Create New Survey</h2>
+            <div class="section-content">
+                <form id="surveyCreationForm">
+                    <div class="form-group">
+                        <label for="surveyTitle">Survey Title:</label>
+                        <input type="text" id="surveyTitle" name="surveyTitle" required>
+                    </div>
+
+                    <!-- Research Categorization Section -->
+                    <h3>Research Categorization</h3>
+                    <div class="form-group">
+                        <label for="researchTheme">Research Theme:</label>
+                        <select id="researchTheme" name="researchTheme">
+                            <option value="">Select a Theme</option>
+                            <option value="demographics_social">Demographics & Social Dynamics</option>
+                            <option value="economic_livelihoods">Economic Development & Livelihoods</option>
+                            <option value="governance_civic">Governance, Civic Engagement & Public Services</option>
+                            <option value="urbanization_quality">Urbanization & Quality of Life</option>
+                            <option value="human_capital_wellness">Human Capital & Well-being</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="subTopicGroup" style="display: none;">
+                        <label for="researchSubTopic">Research Sub-Topic:</label>
+                        <select id="researchSubTopic" name="researchSubTopic">
+                            <option value="">Select a Sub-Topic</option>
+                        </select>
+                    </div>
+
+                    <!-- Geographic Focus Section -->
+                    <h3>Geographic Focus</h3>
+                    <div class="form-group">
+                        <label for="geoRegion">Region:</label>
+                        <select id="geoRegion" name="geoRegion">
+                            <option value="">Select a Region</option>
+                            <option value="Africa (Continental)">Africa (Continental)</option>
+                            <option value="Northern Africa">Northern Africa</option>
+                            <option value="Western Africa">Western Africa</option>
+                            <option value="Central Africa">Central Africa</option>
+                            <option value="Eastern Africa">Eastern Africa</option>
+                            <option value="Southern Africa">Southern Africa</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="geoCountryGroup" style="display: none;">
+                        <label for="geoCountry">Country (from Region):</label>
+                        <select id="geoCountry" name="geoCountry">
+                            <option value="">Select a Country</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Country (Multi-select):</label>
+                        <div class="multi-select-container">
+                            <div class="multi-select-header" id="multiSelectHeader">Select Countries...</div>
+                            <div class="multi-select-dropdown" id="multiSelectDropdown">
+                                <!-- Countries will be populated here by script.js -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Survey Questions</h3>
+                    <div id="surveyQuestionsContainer"></div>
+                    <button type="button" id="addQuestionBtn" class="btn">Add Question</button>
+                    <h3>Survey Schedule</h3>
+                    <div class="form-group">
+                        <label for="goLiveDateTime">Go Live Date & Time:</label>
+                        <input type="datetime-local" id="goLiveDateTime" name="goLiveDateTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="stopDateTime">Stop Taking Answers Date & Time:</label>
+                        <input type="datetime-local" id="stopDateTime" name="stopDateTime" required>
+                    </div>
+                    <h3>USSD Integration (Optional)</h3>
+                    <div class="form-group">
+                        <input type="checkbox" id="enableUssd" name="enableUssd">
+                        <label for="enableUssd">Enable USSD Integration</label>
+                    </div>
+                    <div id="ussdOptions" style="display: none;">
+                        <div class="form-group">
+                            <label for="ussdNumber">USSD Number for Responses:</label>
+                            <input type="text" id="ussdNumber" name="ussdNumber" placeholder="e.g., *123#">
+                        </div>
+                        <div class="form-group">
+                            <label>Generated USSD String (Preview):</label>
+                            <pre id="ussdStringPreview" class="output-area"></pre>
+                        </div>
+                    </div>
+
+                    <!-- Survey Visibility Options -->
+                    <h3>Survey Visibility</h3>
+                    <div class="form-group">
+                        <input type="radio" id="visibilityPublic" name="surveyVisibility" value="public" checked>
+                        <label for="visibilityPublic">Public (visible in Public Repository)</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" id="visibilityPrivate" name="surveyVisibility" value="private">
+                        <label for="visibilityPrivate">Private (visible only in Members' Repository)</label>
+                    </div>
+
+                    <button type="submit" class="btn primary-btn">Create Survey</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Research Dashboard Section -->
+        <section id="research-dashboard">
+            <h2>Research Management Dashboard</h2>
+            <div class="section-content">
+                <p>Your customizable research overview. Add, remove, and arrange widgets to personalize your view.</p>
+                <div class="dashboard-controls">
+                    <button id="addWidgetBtn">Add Widget</button>
+                </div>
+                <div id="dashboard-grid">
+                    <!-- Widget 1: Bar Chart -->
+                    <div class="widget">
+                        <h3>Survey Responses</h3>
+                        <div class="chart-container">
+                            <canvas id="barChart"></canvas>
+                        </div>
+                        <button class="remove-widget">&times;</button>
+                    </div>
+                    <!-- Widget 2: Line Chart -->
+                    <div class="widget">
+                        <h3>Trend Analysis</h3>
+                        <div class="chart-container">
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                        <button class="remove-widget">&times;</button>
+                    </div>
+                    <!-- Widget 3: Animated Figure -->
+                    <div class="widget">
+                        <h3>Progress Indicator</h3>
+                        <div class="animated-figure-container">
+                            <div class="animated-figure"></div>
+                        </div>
+                        <p style="text-align: center; margin-top: 10px;">Data processing in progress...</p>
+                        <button class="remove-widget">&times;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Updated Interactive Research Terminal -->
+        <section id="interactive-research-assistant">
+            <h2>Interactive Research Assistant</h2>
+            <div class="section-content">
+                <p>Select a data source and ask the AI for advice on research design, question phrasing, and data analysis.</p>
+                <div class="form-group">
+                    <label for="research-context-select">Select Data Context (Survey):</label>
+                    <select id="research-context-select">
+                        <option value="">None</option>
+                        <!-- Surveys will be populated here by script.js -->
+                    </select>
+                </div>
+                <div class="chat-container">
+                    <div id="research-chat-window" class="chat-window">
+                        <!-- Research chat messages will be appended here -->
+                    </div>
+                    <div class="chat-input-area">
+                        <textarea id="research-chat-input" placeholder="Ask for research advice..." rows="4"></textarea>
+                        <button id="send-research-chat-btn" class="btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Visualization Section -->
+        <section id="graphics-section">
+            <h2>Data Visualization</h2>
+            <div class="section-content">
+                <div id="graphics-output" class="graphics-container">
+                    <p>Graphs and charts based on your terminal commands will be displayed here.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 African Development Models Initiative. All rights reserved.</p>
+        <p>A Patson Malisa Foundation Project.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

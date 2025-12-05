@@ -1,0 +1,569 @@
+:root {
+    --primary-green: #287a14; /* Main green */
+    --primary-green-dark: #1e5c0f; /* Darker shade for navigation, headings */
+    --primary-green-light: #e0f0df; /* Very light green for active/hover nav background */
+    --text-color: #333333; /* Very dark gray for main text */
+    --background-color: #f8f8f8; /* Slightly off-white main background for softness */
+    --card-background: #ffffff; /* Pure white for cards/sections */
+    --border-color: #e0e0e0; /* Lighter gray for minimal borders */
+    --shadow-light: 0 2px 8px rgba(0,0,0,0.08); /* Softer, more diffused shadow */
+    --shadow-medium: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px; /* Base font size for better readability */
+}
+
+header {
+    background-color: white;
+    color: var(--primary-green-dark);
+    padding: 1.2rem 0; /* Slightly more padding */
+    text-align: center;
+    box-shadow: var(--shadow-light); /* Using softer shadow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+#app-logo {
+    height: 55px; /* Slightly smaller logo */
+    width: auto;
+    vertical-align: middle;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2rem; /* Slightly smaller heading */
+    vertical-align: middle;
+    font-weight: 700; /* Bold */
+    color: var(--primary-green-dark);
+}
+
+nav {
+    background-color: var(--primary-green-dark);
+    padding: 0.8rem 0; /* Slightly more padding */
+    box-shadow: var(--shadow-light); /* Softer shadow */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Space out navigation items */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500; /* Medium weight for links */
+    padding: 8px 15px; /* More generous padding */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Added transform for subtle animation */
+    border-radius: 6px; /* Slightly more rounded corners */
+    display: block; /* Make the whole padding area clickable */
+}
+
+nav ul li a:hover, nav ul li a.active {
+    background-color: var(--primary-green-light);
+    color: var(--primary-green-dark);
+    transform: translateY(-2px); /* Subtle lift on hover/active */
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px; /* Slightly narrower max-width for better line length */
+    margin: 30px auto; /* More margin top/bottom */
+    padding: 30px; /* More padding inside container */
+    background-color: var(--card-background);
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: var(--shadow-medium); /* More prominent shadow for main container */
+}
+
+h2 {
+    color: var(--primary-green-dark);
+    border-bottom: 2px solid var(--primary-green-light);
+    padding-bottom: 12px; /* More padding */
+    margin-top: 35px; /* More margin top */
+    margin-bottom: 25px; /* More margin bottom */
+    font-weight: 700;
+    font-size: 1.8rem; /* Slightly larger heading */
+}
+
+h3 {
+    color: var(--primary-green);
+    margin-top: 25px; /* More margin top */
+    margin-bottom: 15px;
+    font-weight: 600; /* Slightly less bold than h2 */
+    font-size: 1.4rem;
+}
+
+.section-content {
+    margin-top: 20px;
+    padding: 15px; /* Add some padding to content sections */
+    background-color: #fdfdfd; /* Very light background for content blocks */
+    border-radius: 8px;
+    border: 1px solid var(--border-color); /* Subtle border */
+}
+
+/* --- Buttons --- */
+.btn {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 12px 20px; /* More padding for buttons */
+    border-radius: 6px; /* Slightly more rounded */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500; /* Medium weight */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: inline-flex; /* Allow content to be centered and flexible */
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none; /* Ensure no underline for anchor buttons */
+}
+
+.btn:hover {
+    background-color: var(--primary-green-dark);
+    transform: translateY(-1px); /* Subtle lift */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Add shadow on hover */
+}
+
+.btn.secondary-btn {
+    background-color: #f0f0f0;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn.secondary-btn:hover {
+    background-color: #e0e0e0;
+    color: var(--text-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.primary-btn {
+    background-color: var(--primary-green);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-green-dark);
+}
+
+/* --- Input fields and dropdowns --- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="datetime-local"],
+input[type="file"],
+textarea,
+select {
+    width: calc(100% - 24px); /* Account for padding and border */
+    padding: 12px; /* More padding */
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px; /* More rounded */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="datetime-local"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(40, 122, 20, 0.2); /* Focus ring */
+    outline: none;
+}
+
+/* --- Custom Multi-Select Dropdown --- */
+.multi-select-container {
+    position: relative;
+    width: calc(100% - 24px); /* Match other inputs */
+    margin-bottom: 15px;
+}
+
+.multi-select-header {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.multi-select-header::after {
+    content: '▼'; /* Dropdown arrow */
+    font-size: 0.8em;
+    color: #666;
+}
+
+.multi-select-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    background-color: white;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1001;
+    box-shadow: var(--shadow-light);
+}
+
+.multi-select-dropdown.show {
+    display: block;
+}
+
+.multi-select-dropdown label {
+    display: flex; /* Use flex for alignment */
+    align-items: center;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.multi-select-dropdown label:hover {
+    background-color: #f0f0f0;
+}
+
+.multi-select-dropdown input[type="checkbox"] {
+    margin-right: 10px;
+    width: auto; /* Override 100% width */
+    margin-bottom: 0; /* Override default margin */
+}
+
+/* Specific styles for dashboard grid and widgets */
+#dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; /* Increased gap */
+    min-height: 300px;
+    border: 1px dashed var(--border-color);
+    padding: 20px; /* More padding */
+    border-radius: 8px;
+    background-color: #fdfdfd;
+}
+
+.widget {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow-light);
+    position: relative;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.widget:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.widget h3 {
+    color: var(--primary-green);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.widget .remove-widget {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    font-size: 1.3rem; /* Slightly larger */
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.widget .remove-widget:hover {
+    color: #cc0000;
+    transform: scale(1.1);
+}
+
+/* --- Chart Containers --- */
+.chart-container {
+    position: relative;
+    height: 200px; /* Fixed height for charts */
+    width: 100%; /* Take full width of parent */
+    margin-top: 10px;
+}
+
+/* --- Animated Figure for Dashboard --- */
+.animated-figure-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Container height for centering */
+    margin-top: 10px;
+}
+
+.animated-figure {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-green);
+    border-radius: 50%;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+}
+
+/* AI Agent Specific Styles */
+.ai-agent-section {
+    margin-bottom: 30px;
+    padding: 25px; /* More padding */
+    border: 1px solid var(--border-color);
+    border-radius: 10px; /* More rounded */
+    background-color: var(--card-background);
+    box-shadow: var(--shadow-light);
+}
+
+.ai-agent-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500; /* Medium weight */
+    color: var(--text-color);
+}
+
+.file-list {
+    list-style: none;
+    padding: 10px 15px; /* More padding */
+    margin-top: 10px;
+    border: 1px dashed var(--border-color);
+    min-height: 60px; /* Taller min-height */
+    border-radius: 6px;
+    background-color: #fdfdfd;
+}
+
+.file-list li {
+    padding: 8px 0; /* More padding */
+    border-bottom: 1px dotted #eee;
+    font-size: 0.95rem;
+}
+
+.file-list li:last-child {
+    border-bottom: none;
+}
+
+.output-area {
+    background-color: #f0f0f0; /* Lighter background */
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 6px;
+    min-height: 150px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+footer {
+    text-align: center;
+    padding: 25px; /* More padding */
+    margin-top: 50px; /* More margin top */
+    background-color: var(--primary-green-dark);
+    color: white;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+    border-top-left-radius: 10px; /* Rounded corners for footer */
+    border-top-right-radius: 10px;
+}
+
+/* --- Authentication Form Styles --- */
+.form-container {
+    max-width: 450px; /* Slightly wider */
+    margin: 40px auto; /* More margin */
+    padding: 30px; /* More padding */
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    background-color: var(--card-background);
+}
+
+.divider {
+    text-align: center;
+    margin: 25px 0; /* More margin */
+    color: #bbb; /* Lighter color */
+    position: relative;
+    font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 25px; /* More margin */
+    font-size: 0.95rem;
+}
+
+.auth-switch a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+.google-btn {
+    background-color: #ffffff;
+    color: #444;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 15px; /* Adjusted padding */
+    font-size: 0.95rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+.google-btn:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.google-btn img {
+    height: 20px; /* Slightly larger icon */
+    width: 20px;
+}
+
+/* --- Chatbot Iframe --- */
+.chatbot-iframe-container {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Adjust height as needed */
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+}
+
+.chatbot-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav ul li {
+        margin: 0;
+    }
+    .container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+    .form-container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    .chat-window {
+        max-height: 300px;
+    }
+    .pat-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    #app-logo {
+        height: 45px;
+    }
+    .container {
+        padding: 15px;
+    }
+    .chat-input-area {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .chat-input-area textarea {
+        margin-right: 0;
+    }
+    .chat-input-area button {
+        width: 100%;
+    }
+}

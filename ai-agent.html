@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent - African Development Models Initiative</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img id="app-logo" src="https://raw.githubusercontent.com/DomSimone/ADMI232/refs/heads/main/static/logo.png" alt="African Development Models Initiative Logo">
+        <h1>African Development Models Initiative</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="research-design-and-management.html">Research Design & Management</a></li>
+            <li><a href="data-ingestion.html">Data Ingestion & Analysis</a></li>
+            <li><a href="ai-agent.html" class="active">AI Agent</a></li>
+            <li><a href="research-repository.html">Research Repository</a></li>
+            <li><a href="terms-of-use.html">Terms of Use</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+            </div>
+        </section>
+
+        <!-- Existing Document Intelligence Section -->
+        <section id="ai-agent-docs">
+            <h2>AI Agent: Document Intelligence</h2>
+            <div class="section-content">
+                <p>Leverage AI-native vision and OCR to extract structured data from various document types.</p>
+
+                <div class="ai-agent-section">
+                    <h3>1. Document Ingestion & Understanding (Native Vision)</h3>
+                    <p>Upload up to 20 PDF or Image files for OpenAI processing.</p>
+                    <label for="documentUpload">Upload Documents (PDF/Images, max 20 items):</label>
+                    <input type="file" id="documentUpload" accept=".pdf,image/*" multiple>
+                    <ul id="uploadedFilesList" class="file-list"></ul>
+                </div>
+
+                <div class="ai-agent-section">
+                    <h3>2. Structured Output Prompting & Generative AI Extraction</h3>
+                    <p>Provide a prompt to instruct the AI on what information to extract from the uploaded documents.</p>
+                    <label for="extractionPrompt">Extraction Prompt & Structured Output Configuration:</label>
+                    <textarea id="extractionPrompt" placeholder="Example:
+- Summarize the key findings from all uploaded documents.
+- Identify 'Invoice Number', 'Date', and 'Total Amount Due' from all invoices.
+- Compare the quarterly results from the uploaded reports."></textarea>
+                    <div class="ai-agent-controls">
+                        <button id="processDocumentsBtn">Process Documents with AI</button>
+                    </div>
+                </div>
+
+                <div class="ai-agent-section">
+                    <h3>3. Result Output</h3>
+                    <p>The extracted structured data will appear here.</p>
+                    <label for="aiOutput">AI Extracted Data:</label>
+                    <pre id="aiOutput" class="output-area">Waiting for documents and prompt...</pre>
+                    <div class="ai-agent-controls">
+                        <button id="downloadCsvBtn" disabled>Download as CSV</button>
+                        <button id="downloadJsonBtn" disabled>Download as JSON</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 African Development Models Initiative. All rights reserved.</p>
+        <p>A Patson Malisa Foundation Project.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
